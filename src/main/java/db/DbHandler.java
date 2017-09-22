@@ -36,6 +36,4 @@ public class DbHandler {
         return datastore;
     }
 
-
-
 }
