@@ -1,13 +1,9 @@
 package db;
 
 import com.mongodb.MongoClient;
-import com.mongodb.client.MongoDatabase;
-import model.AccountRecord;
-import model.BaseEntity;
+import models.BaseEntity;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
-
-import java.net.UnknownHostException;
 
 public class DbHandler {
 
@@ -35,5 +31,4 @@ public class DbHandler {
     public Datastore getDatastore(){
         return datastore;
     }
-
 }

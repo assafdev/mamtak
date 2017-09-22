@@ -1,13 +1,7 @@
-package service;
+package services;
 
-import com.mongodb.MongoClient;
 import db.DbHandler;
-import model.AccountRecord;
-import org.mongodb.morphia.Datastore;
-import org.mongodb.morphia.Morphia;
-import org.mongodb.morphia.mapping.Mapper;
-import org.mongodb.morphia.mapping.MapperOptions;
-import org.mongodb.morphia.query.Query;
+import models.AccountRecord;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -17,10 +11,8 @@ public class AccountsResponsibilityService {
     private DbHandler handler;
 
 
-
     public AccountsResponsibilityService(DbHandler dbHandler) {
         handler = dbHandler;
-
     }
 
     public String addRecord(AccountRecord record){

@@ -1,64 +1,80 @@
 [
   {
-    "index": 0,
-    "id": 9493034,
-    "area": "Tel-Aviv North",
-    "name": "Campos Curtis",
-    "sectionMin": 11,
-    "sectionMax": 14,
-    "moneyChannel": 7620,
-    "path": null
+    "id": 0,
+    "adminName": "Isabel Trujillo",
+    "accountName": "Modiin South",
+    "Block": [
+      {
+        "sectionMin": 7,
+        "sectionMax": 13
+      }
+    ],
+    "moneyChannel": 2198,
+    "additionalNotes": "Newcube"
   },
   {
-    "index": 1,
-    "id": 3610832,
-    "area": "Tel-Aviv South",
-    "name": "Sandra Olsen",
-    "sectionMin": 1,
-    "sectionMax": 9,
-    "moneyChannel": 9788,
-    "path": null
+    "id": 1,
+    "adminName": "Johns Huber",
+    "accountName": "Modiin North",
+    "Block": [
+      {
+        "sectionMin": 14,
+        "sectionMax": 18
+      }
+    ],
+    "moneyChannel": 4279,
+    "additionalNotes": "Quinex"
   },
   {
-    "index": 2,
-    "id": 8354447,
-    "area": "Modiin South",
-    "name": "Mullins Navarro",
-    "sectionMin": 6,
-    "sectionMax": 12,
-    "moneyChannel": 1561,
-    "path": null
+    "id": 2,
+    "adminName": "Nieves Warner",
+    "accountName": "Savion South",
+    "Block": [
+      {
+        "sectionMin": 6,
+        "sectionMax": 18
+      }
+    ],
+    "moneyChannel": 8292,
+    "additionalNotes": "Isopop"
   },
   {
-    "index": 3,
-    "id": 6854140,
-    "area": "Modiin North",
-    "name": "Hope Holder",
-    "sectionMin": 17,
-    "sectionMax": 23,
-    "moneyChannel": 9041,
-    "path": null
+    "id": 3,
+    "adminName": "Bradley Reid",
+    "accountName": "Savion North",
+    "Block": [
+      {
+        "sectionMin": 19,
+        "sectionMax": 31
+      }
+    ],
+    "moneyChannel": 1472,
+    "additionalNotes": "Scenty"
   },
   {
-    "index": 4,
-    "id": 8324777,
-    "area": "Savion South",
-    "name": "Tom Dvir",
-    "sectionMin": 30,
-    "sectionMax": 45,
-    "moneyChannel": 3321,
-    "path": null
+    "id": 4,
+    "adminName": "Wilcox Glass",
+    "accountName": "Tel-Aviv South",
+    "Block": [
+      {
+        "sectionMin": 9,
+        "sectionMax": 16
+      }
+    ],
+    "moneyChannel": 8858,
+    "additionalNotes": "Eplode"
   },
   {
-    "index": 5,
-    "id": 2491240,
-    "area": "Savion North",
-    "name": "Reut Atad",
-    "sectionMin": 49,
-    "sectionMax": 61,
-    "moneyChannel": 4791,
-    "path": null
+    "id": 5,
+    "adminName": "Nell Kirby",
+    "accountName": "Tel-Aviv  North",
+    "Block": [
+      {
+        "sectionMin": 33,
+        "sectionMax": 51
+      }
+    ],
+    "moneyChannel": 3613,
+    "additionalNotes": "Isoswitch"
   }
-  ]
-
-//run db.acconuts.insert([<here goes the above list>]) in mongo shell
+]
