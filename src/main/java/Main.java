@@ -1,5 +1,3 @@
-import com.mongodb.MongoClient;
-
 import static spark.Spark.*;
 
 public class Main {
