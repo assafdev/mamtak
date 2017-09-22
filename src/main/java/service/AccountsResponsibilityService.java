@@ -1,6 +1,7 @@
 package service;
 
 import com.mongodb.MongoClient;
+import db.DbHandler;
 import model.AccountRecord;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
@@ -13,28 +14,23 @@ import java.util.logging.Logger;
 
 public class AccountsResponsibilityService {
     private static Logger LOGGER =Logger.getLogger("AccountsResponsibilityService");
+    private DbHandler handler;
 
-    private static final int MONGO_DB_PORT = 27017;
-    private MongoClient client;
-    private Datastore datastore;
 
-    public AccountsResponsibilityService() {
-        client = new MongoClient("localhost", MONGO_DB_PORT);
 
-        Morphia morphia = new Morphia();
-        morphia.map(AccountRecord.class);
+    public AccountsResponsibilityService(DbHandler dbHandler) {
+        handler = dbHandler;
 
-        datastore = morphia.createDatastore(client, "records");
     }
 
     public String addRecord(AccountRecord record){
-        datastore.save(record);
-        LOGGER.info("record as been saved: " + record.toString() + "num of records is: " + datastore.getCount(AccountRecord.class));
+        handler.getDatastore().save(record);
+        LOGGER.info("record as been saved: " + record.toString() + "num of records is: " + handler.getDatastore().getCount(AccountRecord.class));
         return "a record has been created - admin name:" + record.getAdminName() + " money channel:" + record.getMoneyChannel();
     }
 
     public List<AccountRecord> getAll(){
-        List<AccountRecord> accountRecords = datastore.find(AccountRecord.class).asList();
+        List<AccountRecord> accountRecords = handler.getDatastore().find(AccountRecord.class).asList();
         if (accountRecords != null){
             LOGGER.info("number of records " + accountRecords.size());
         }

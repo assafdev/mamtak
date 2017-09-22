@@ -1,3 +1,5 @@
+import com.mongodb.MongoClient;
+import db.DbHandler;
 import model.AccountRecord;
 import model.Block;
 import com.google.gson.*;
@@ -7,7 +9,8 @@ import static spark.Spark.*;
 
 public class Main {
 
-    private static AccountsResponsibilityService accountsResponsibilityService = new AccountsResponsibilityService();
+    private static DbHandler dbHandler = new DbHandler();
+    private static AccountsResponsibilityService accountsResponsibilityService = new AccountsResponsibilityService(dbHandler);
 
     public static void main(String[] args) {
 

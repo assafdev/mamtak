@@ -1,15 +1,13 @@
 package model;
 
-import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
 
 /**
  * The model of Accounts Responsibility record -> one admin for 1 or more accounts records
  * starting with non-recursive model for the simplicity example -> going to be tree structured recursive model
  */
-@Entity
+@Entity("accounts")
 public class AccountRecord extends BaseEntity {
 
     private String accountsName;
@@ -24,18 +22,6 @@ public class AccountRecord extends BaseEntity {
 
     public AccountRecord(){
 
-    }
-
-    @Override
-    public String toString() {
-        return "AccountRecord{" +
-                "accountsName='" + accountsName + '\'' +
-                ", adminName='" + adminName + '\'' +
-                ", creditBlock=" + creditBlock +
-                ", moneyChannel=" + moneyChannel +
-                ", additionalNotes='" + additionalNotes + '\'' +
-                ", id=" + id +
-                '}';
     }
 
     public AccountRecord(String accountsName, String adminName, Block creditBlock, int moneyChannel, String additionalNotes) {
@@ -85,4 +71,17 @@ public class AccountRecord extends BaseEntity {
     public int getMoneyChannel() {
         return moneyChannel;
     }
+
+    @Override
+    public String toString() {
+        return "AccountRecord{" +
+                "accountsName='" + accountsName + '\'' +
+                ", adminName='" + adminName + '\'' +
+                ", creditBlock=" + creditBlock +
+                ", moneyChannel=" + moneyChannel +
+                ", additionalNotes='" + additionalNotes + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
 }
