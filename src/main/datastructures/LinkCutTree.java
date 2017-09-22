@@ -1,5 +1,3 @@
-package datastructures;
-
 import java.util.*;
 
 // LinkCut tree with path queries. Query complexity is O(log(n)) amortized.
