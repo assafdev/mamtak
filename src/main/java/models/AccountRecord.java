@@ -1,15 +1,16 @@
-package model;
+package models;
 
-import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
+import org.mongodb.morphia.annotations.Reference;
+
+import java.util.List;
 
 /**
- * The model of Accounts Responsibility record -> one admin for 1 or more accounts records
- * starting with non-recursive model for the simplicity example -> going to be tree structured recursive model
+ * The models of Accounts Responsibility record -> one admin for 1 or more accounts records
+ * starting with non-recursive models for the simplicity example -> going to be tree structured recursive models
  */
-@Entity
+@Entity("accounts")
 public class AccountRecord extends BaseEntity {
 
     private String accountsName;
@@ -22,28 +23,20 @@ public class AccountRecord extends BaseEntity {
 
     private String additionalNotes;
 
+    @Reference
+    private List<AccountRecord> supervisedAccounts;
+
     public AccountRecord(){
 
     }
 
-    @Override
-    public String toString() {
-        return "AccountRecord{" +
-                "accountsName='" + accountsName + '\'' +
-                ", adminName='" + adminName + '\'' +
-                ", creditBlock=" + creditBlock +
-                ", moneyChannel=" + moneyChannel +
-                ", additionalNotes='" + additionalNotes + '\'' +
-                ", id=" + id +
-                '}';
-    }
-
-    public AccountRecord(String accountsName, String adminName, Block creditBlock, int moneyChannel, String additionalNotes) {
+    public AccountRecord(String accountsName, String adminName, Block creditBlock, int moneyChannel, String additionalNotes, List<AccountRecord> supervisedAccounts) {
         this.accountsName = accountsName;
         this.adminName = adminName;
         this.creditBlock = creditBlock;
         this.moneyChannel = moneyChannel;
         this.additionalNotes = additionalNotes;
+        this.supervisedAccounts = supervisedAccounts;
     }
 
     public String getAccountsName() {
@@ -85,4 +78,23 @@ public class AccountRecord extends BaseEntity {
     public int getMoneyChannel() {
         return moneyChannel;
     }
+
+    public List<AccountRecord> getSupervisedAccounts(){
+        return supervisedAccounts;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "AccountRecord{" +
+                "accountsName='" + accountsName + '\'' +
+                ", adminName='" + adminName + '\'' +
+                ", creditBlock=" + creditBlock +
+                ", moneyChannel=" + moneyChannel +
+                ", additionalNotes='" + additionalNotes + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
 }

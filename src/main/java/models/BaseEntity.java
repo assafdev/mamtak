@@ -1,4 +1,4 @@
-package model;
+package models;
 
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Id;
@@ -21,10 +21,6 @@ public abstract class BaseEntity {
 
     public ObjectId getId() {
         return id;
-    }
-
-    public void setId(ObjectId id) {
-        this.id = id;
     }
 
     public long getVersion() {
