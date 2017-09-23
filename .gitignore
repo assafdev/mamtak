@@ -21,3 +21,5 @@
 .idea
 *.iml
 target
+
+/src/main/resources/public/

@@ -14,6 +14,8 @@ public class Main {
 
         System.out.println("The sever is running on: " + "http://localhost:4567/hello");
 
+        staticFileLocation("/public");
+
         setupEndpoints();
 
     }
