@@ -24,6 +24,7 @@ public class DbHandler {
 
         //all models for the mongodb documents needs to be stored in the same package as baseentity - does it make sense?
         morphia.mapPackageFromClass(BaseEntity.class);
+        morphia.getMapper().getOptions().setStoreNulls(true);
 
         datastore = morphia.createDatastore(client, dbName);
     }

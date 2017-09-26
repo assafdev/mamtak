@@ -13,50 +13,59 @@ import java.util.List;
 @Entity("accounts")
 public class AccountRecord extends BaseEntity {
 
-    private String accountsName;
+    private String accountName;
     private String adminName;
 
-    @Embedded
-    private Block creditBlock;
+    private int minValue;
+    private int maxValue;
 
     private int moneyChannel;
 
     private String additionalNotes;
 
-    @Reference
+    //@Reference
     private List<AccountRecord> supervisedAccounts;
 
     public AccountRecord(){
 
     }
 
-    public AccountRecord(String accountsName, String adminName, Block creditBlock, int moneyChannel, String additionalNotes, List<AccountRecord> supervisedAccounts) {
-        this.accountsName = accountsName;
+    public AccountRecord(String accountName, String adminName, int minValue, int maxValue, int moneyChannel, String additionalNotes, List<AccountRecord> supervisedAccounts) {
+        this.accountName = accountName;
         this.adminName = adminName;
-        this.creditBlock = creditBlock;
+        this.minValue = minValue;
+        this.maxValue = maxValue;
         this.moneyChannel = moneyChannel;
         this.additionalNotes = additionalNotes;
         this.supervisedAccounts = supervisedAccounts;
     }
 
     public String getAccountsName() {
-        return accountsName;
+        return accountName;
     }
 
     public void setAccountsName(String accountsName) {
-        this.accountsName = accountsName;
+        this.accountName = accountsName;
     }
 
     public void setAdminName(String adminName) {
         this.adminName = adminName;
     }
 
-    public Block getCreditBlock() {
-        return creditBlock;
+    public int getMinValue() {
+        return minValue;
     }
 
-    public void setCreditBlock(Block creditBlock) {
-        this.creditBlock = creditBlock;
+    public void setMinValue(int minValue) {
+        this.minValue = minValue;
+    }
+
+    public int getMaxValue() {
+        return maxValue;
+    }
+
+    public void setMaxValue(int maxValue) {
+        this.maxValue = maxValue;
     }
 
     public void setMoneyChannel(int moneyChannel) {
@@ -83,14 +92,13 @@ public class AccountRecord extends BaseEntity {
         return supervisedAccounts;
     }
 
-
-
     @Override
     public String toString() {
         return "AccountRecord{" +
-                "accountsName='" + accountsName + '\'' +
+                "accountsName='" + accountName + '\'' +
                 ", adminName='" + adminName + '\'' +
-                ", creditBlock=" + creditBlock +
+                ", minValue=" + minValue + '\'' +
+                ", maxValue=" + maxValue + '\'' +
                 ", moneyChannel=" + moneyChannel +
                 ", additionalNotes='" + additionalNotes + '\'' +
                 ", id=" + id +

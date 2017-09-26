@@ -11,9 +11,9 @@ public abstract class BaseEntity {
     @Property("id")
     protected ObjectId id;
 
-    @Version
-    @Property("version")
-    private long version;
+//    @Version
+ //   @Property("version")
+ //   private long version;
 
     public BaseEntity() {
         super();
@@ -23,12 +23,14 @@ public abstract class BaseEntity {
         return id;
     }
 
-    public long getVersion() {
+ /*   public long getVersion() {
         return version;
     }
 
     public void setVersion(long version) {
         this.version = version;
     }
+
+    */
 
 }

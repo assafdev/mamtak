@@ -2,27 +2,30 @@ package services;
 
 import db.DbHandler;
 import models.AccountRecord;
+import org.mongodb.morphia.Datastore;
+import org.mongodb.morphia.query.Query;
 
 import java.util.List;
+import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 public class AccountsResponsibilityService {
     private static Logger LOGGER =Logger.getLogger("AccountsResponsibilityService");
-    private DbHandler handler;
+    private Datastore datastore;
 
 
     public AccountsResponsibilityService(DbHandler dbHandler) {
-        handler = dbHandler;
+        datastore = dbHandler.getDatastore();
     }
 
-    public String addRecord(AccountRecord record){
-        handler.getDatastore().save(record);
-        LOGGER.info("record as been saved: " + record.toString() + "num of records is: " + handler.getDatastore().getCount(AccountRecord.class));
+    public String addAccount(AccountRecord record){
+        datastore.save(record);
+        LOGGER.info("record as been saved: " + record.toString() + "num of records is: " + datastore.getCount(AccountRecord.class));
         return "a record has been created - admin name:" + record.getAdminName() + " money channel:" + record.getMoneyChannel();
     }
 
-    public List<AccountRecord> getAll(){
-        List<AccountRecord> accountRecords = handler.getDatastore().find(AccountRecord.class).asList();
+    public List<AccountRecord> getAllAccounts(){
+        List<AccountRecord> accountRecords =datastore.find(AccountRecord.class).asList();
         if (accountRecords != null){
             LOGGER.info("number of records " + accountRecords.size());
         }
@@ -31,4 +34,14 @@ public class AccountsResponsibilityService {
         }
         return accountRecords;
     }
+
+    public String syncAccounts(List<AccountRecord> newAccounts){
+        LOGGER.info("new accounts count:" + newAccounts.size());
+
+        final Query<AccountRecord> emptyQuery = datastore.createQuery(AccountRecord.class);
+        datastore.delete(emptyQuery);
+        datastore.save(newAccounts);
+        return "synchronized all accounts";
+    }
+
 }
