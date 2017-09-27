@@ -23,7 +23,7 @@ public class AccountRecord extends BaseEntity {
 
     private String additionalNotes;
 
-    //@Reference
+    @Reference
     private List<AccountRecord> supervisedAccounts;
 
     public AccountRecord(){
@@ -101,7 +101,7 @@ public class AccountRecord extends BaseEntity {
                 ", maxValue=" + maxValue + '\'' +
                 ", moneyChannel=" + moneyChannel +
                 ", additionalNotes='" + additionalNotes + '\'' +
-                ", id=" + id +
+                ", id=" + id + supervisedAccounts.stream().map(s->s.toString()).reduce("" , (a , b) -> a + b) +
                 '}';
     }
 

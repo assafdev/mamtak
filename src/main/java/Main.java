@@ -38,6 +38,12 @@ public class Main {
                     return accountsResponsibilityService.addAccount(accountRecord);
                 }, m -> new Gson().toJson(m));
 
+                post("/delete", "application/json", (req, res) -> {
+                    res.type("application/json");
+                    AccountRecord accountRecord = new GsonBuilder().serializeNulls().create().fromJson(req.body(), AccountRecord.class);
+                    return accountsResponsibilityService.deleteAccount(accountRecord);
+                }, m -> new Gson().toJson(m));
+
                 get("/all", (req, res) -> {
 
                     res.type("application/json");

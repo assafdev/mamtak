@@ -24,6 +24,12 @@ public class AccountsResponsibilityService {
         return "a record has been created - admin name:" + record.getAdminName() + " money channel:" + record.getMoneyChannel();
     }
 
+    public String deleteAccount(AccountRecord record){
+        datastore.delete(record);
+        LOGGER.info("record as been deleted: " + record.toString() + "num of records is: " + datastore.getCount(AccountRecord.class));
+        return "a record has been delete - admin name:" + record.getAdminName() + " money channel:" + record.getMoneyChannel();
+    }
+
     public List<AccountRecord> getAllAccounts(){
         List<AccountRecord> accountRecords =datastore.find(AccountRecord.class).asList();
         if (accountRecords != null){
